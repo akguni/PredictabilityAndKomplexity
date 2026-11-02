@@ -23,8 +23,6 @@
 #align(center)[
   #text(size: 16pt, weight: "bold")[Übungsaufgaben]
   #v(4mm)
-  #text(size: 14pt, weight: "bold")[Ismail Akgün stud105617]
-  #v(2mm)
   #text(size: 14pt, weight: "bold")[Aufgabe 1]
 ]
 
@@ -41,22 +39,39 @@
 - [d)] #answer-space(prompt: "a: Ja. Für jede Eingabe gibt es immer genau eine Lösung in der Lösungsmenge.
 b: Nein. Es gibt mehr als eine Lösung, die zur gleichen Eingabe passt, z. B. (3, 111) und (3, 201) sind beide in der Lösungsmenge.
 c: Nein. Es gibt beispielsweise keine ganze Zahl, deren Quadrat 2 ist.")
-- [e)] #answer-space(prompt: "Ergebnis ...")
+- [e)] #answer-space(prompt: "a: Berechenbar. Einfach Eingabe mal Eingabe.
+b: Berechenbar. z.B. 0 für Eingabe 0 und Anzahl der Ziffern mal „1“ für jede andere.
+c: Berechenbar; allerdings gibt es für manche Eingaben (z. B. negative Zahlen) keine Lösung.
+")
 
 #pagebreak()
 
 = 2)
 
-- [a)] #answer-space(prompt: "Formulierung ...")
-- [b)] #answer-space(prompt: "Erweiterung ...")
+- [a)] #answer-space(prompt: [
+  $Pi = {(x, y) in cal(P)(M) times cal(P)(M) | (A(x)>80 and "arbeitet"(x)) <==> x in y)} $
+    ])
+- [b)] #answer-space(prompt: [
+  $Pi = {
+  (x, y) in cal(P)(M) times M |
+  y in x and
+  A(y) > 80 and
+  "arbeitet"(y) and
+  forall x in b (
+    (A(x) > 80 "years" and "arbeitet"(x))
+    =>
+    A(x) <= A(y)
+  )
+}$
+   ])
 
-= 3)
+// = 3)
 
-#answer-space(prompt: "Algorithmus oder Ablauf ...")
+// #answer-space(prompt: "Algorithmus oder Ablauf ...")
 
-= 4)
+// = 4)
 
-#answer-space(prompt: "Vergleich oder Reduktion ...")
+// #answer-space(prompt: "Vergleich oder Reduktion ...")
 
 #pagebreak()
 
@@ -103,4 +118,27 @@ Ja, das funktioniert auch, bei keiner Eingabestrich. Der Lesekopf liest b und la
 
 = 7)
 
-#answer-space(prompt: "Verbesserte Zustände ...")
+#answer-space(prompt: [#table(
+  columns: (auto, auto, auto, auto),
+  align: center,
+  inset: 6pt,
+  stroke: (x, y) => (
+  left: if x == 0 { none } else { 0.6pt },
+  bottom: if y == 0 { 0.6pt } else { none },
+),
+
+  [], [$q_0$], [$q_1$], [$q_2$],
+
+  [0], [$0, q_0, R$], [$1, q_2, L$], [$0, q_2, L$],
+  [1], [$1, q_0, R$], [$2, q_2, L$], [$1, q_2, L$],
+  [2], [$2, q_0, R$], [$3, q_2, L$], [$2, q_2, L$],
+  [3], [$3, q_0, R$], [$4, q_2, L$], [$3, q_2, L$],
+  [4], [$4, q_0, R$], [$5, q_2, L$], [$4, q_2, L$],
+  [5], [$5, q_0, R$], [$6, q_2, L$], [$5, q_2, L$],
+  [6], [$6, q_0, R$], [$7, q_2, L$], [$6, q_2, L$],
+  [7], [$7, q_0, R$], [$8, q_2, L$], [$7, q_2, L$],
+  [8], [$8, q_0, R$], [$9, q_2, L$], [$8, q_2, L$],
+  [9], [$9, q_0, R$], [$0, q_1, L$], [$9, q_2, L$],
+  [b], [$b, q_1, L$], [$1, q_e, M$], [$b, q_e, R$],
+  )
+])
